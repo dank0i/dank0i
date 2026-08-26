@@ -1,31 +1,16 @@
-# Ary
+### Ary
 
-I make hardware do things it was not shipped to do, then wire the result into my house.
+Firmware and Rust, mostly. Lately a lot of USB HID.
 
-### [cyclone2](https://github.com/dank0i/cyclone2)
+**[cyclone2](https://github.com/dank0i/cyclone2)** - GameSir Cyclone 2, a JieLi BR23 pad. I pulled
+the firmware, patched it for battery and LED over Bluetooth, and raised the 2.4G report rate. The Pi
+half fakes an Xbox 360 receiver so the pad shows up as XInput on Windows. The Ghidra module for
+these chips renders byte-load addresses wrong, that's documented in there too.
 
-Reverse engineering a GameSir Cyclone 2, a game controller built on a JieLi BR23 SoC. Documents the
-image layout, the instruction encodings, the timer subsystem, and four firmware patches that add
-capabilities the stock firmware does not expose. It also documents four rendering defects in a
-public Ghidra processor module, one of which silently corrupts global addresses, so anyone using it
-reads wrong addresses without knowing.
+**[pc-bridge](https://github.com/dank0i/pc-bridge)** - Rust agent, puts my gaming PC in Home
+Assistant over MQTT. Game detection, sleep state, remote launch, wake-on-LAN.
 
-The other half is a Raspberry Pi that presents the pad to Windows as an Xbox 360 Wireless Receiver,
-giving native XInput with working rumble and battery, with nothing installed on the PC. Getting
-output reports to flow at all required patching the kernel's `f_fs` module.
+**[controllernav](https://github.com/dank0i/controllernav)** - Discord with a controller. I built it
+because I game from bed.
 
-### [pc-bridge](https://github.com/dank0i/pc-bridge)
-
-A Rust agent that exposes a gaming PC to Home Assistant over MQTT: event-driven game detection,
-power and sleep state, remote launch, wake-on-LAN. Signed release binaries, and CI that runs
-cargo-deny, gitleaks, trivy and semgrep on every push.
-
-### [controllernav](https://github.com/dank0i/controllernav)
-
-Navigate the Discord client with a game controller. Discord lets you bind push-to-talk to a gamepad
-but gives you no way to move around the client with one. This adds a focus ring you drive with the
-d-pad, and a virtual cursor for anything the ring cannot reach.
-
----
-
-Currently looking for software engineering roles.
+Open to software engineering roles.
