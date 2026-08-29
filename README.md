@@ -2,6 +2,12 @@
 
 Firmware and Rust, mostly. Lately a lot of USB HID.
 
+**[pc-bridge](https://github.com/dank0i/pc-bridge)** - Rust agent, puts my gaming PC in Home
+Assistant over MQTT. Game detection, sleep state, remote launch, wake-on-LAN. Recently a module
+host, so personal automation runs as a supervised subprocess instead of living in the tree. Not a
+DLL plugin: Rust has no stable ABI, and a plugin built against an older version loaded into a
+self-updating binary doesn't error, it corrupts memory.
+
 **[cyclone2](https://github.com/dank0i/cyclone2)** - GameSir Cyclone 2, a JieLi BR23 pad. I pulled
 the firmware, patched it for battery and LED over Bluetooth, and raised the 2.4G report rate. The Pi
 half fakes an Xbox 360 receiver so the pad shows up as XInput on Windows. The Ghidra module for
@@ -15,12 +21,6 @@ the same chip and SDK generation ship unencrypted, so it's a known-plaintext att
 bought and no hardware opened. All 315,654 words come out, none unsolved. Then I noticed the SC3
 has four faders and reports one of them, so the patch exposes all four over USB HID and I got the
 per-app volume mixer I'd been planning to build out of potentiometers. Tooling only, no firmware.
-
-**[pc-bridge](https://github.com/dank0i/pc-bridge)** - Rust agent, puts my gaming PC in Home
-Assistant over MQTT. Game detection, sleep state, remote launch, wake-on-LAN. Recently a module
-host, so personal automation runs as a supervised subprocess instead of living in the tree. Not a
-DLL plugin: Rust has no stable ABI, and a plugin built against an older version loaded into a
-self-updating binary doesn't error, it corrupts memory.
 
 **[football-forecast](https://github.com/dank0i/football-forecast)** - Forecasts 25,979 European
 matches and scores the result against bookmaker odds instead of against nothing. Using no betting
