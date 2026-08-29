@@ -14,13 +14,11 @@ half fakes an Xbox 360 receiver so the pad shows up as XInput on Windows. The Gh
 these chips renders byte-load addresses wrong, that's documented in there too.
 
 **[sc3](https://github.com/dank0i/sc3)** - A FIFINE SC3 desk mixer sums its line in into the USB
-mic send, so whoever I'm talking to hears themselves back. The vendor's V22 update claims to fix
-that and doesn't. The routing is in the firmware, the firmware is encrypted, and there's no public
-tooling for MVsilicon parts. The way in wasn't the cipher, it was the corpus: 81 of 87 images on
-the same chip and SDK generation ship unencrypted, so it's a known-plaintext attack with nothing
-bought and no hardware opened. All 315,654 words come out, none unsolved. Then I noticed the SC3
-has four faders and reports one of them, so the patch exposes all four over USB HID and I got the
-per-app volume mixer I'd been planning to build out of potentiometers. Tooling only, no firmware.
+mic send, so whoever I'm talking to hears themselves back. The vendor's update claims to fix that
+and doesn't. The routing is in encrypted firmware, so I broke it: 81 of 87 sibling images ship
+unencrypted, which makes it known-plaintext. All 315,654 words come out. It also reports one of its
+four faders, so the patch exposes all four and I got the per-app volume mixer I'd been meaning to
+build out of potentiometers.
 
 **[football-forecast](https://github.com/dank0i/football-forecast)** - Forecasts 25,979 European
 matches and scores the result against bookmaker odds instead of against nothing. Using no betting
